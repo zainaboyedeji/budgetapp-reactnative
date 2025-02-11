@@ -8,10 +8,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from "react-native";
-import { ProgressChart } from "react-native-chart-kit";
-import { Dimensions } from "react-native";
-
-const screenWidth = Dimensions.get("window").width;
+import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 const BudgetScreen = () => {
   return (
@@ -44,20 +41,15 @@ const BudgetScreen = () => {
         </View>
 
         <View style={styles.progressContainer}>
-          <ProgressChart
-            data={{ data: [0.49] }}
-            width={screenWidth - 40}
-            height={150}
-            strokeWidth={10}
-            radius={32}
-            chartConfig={{
-              backgroundGradientFrom: "#fff",
-              backgroundGradientTo: "#fff",
-              color: () => `#2F80ED`,
-            }}
-            hideLegend={true}
-          />
-          <Text style={styles.percentage}>49%</Text>
+          <AnimatedCircularProgress
+            size={120}
+            width={10}
+            fill={49}
+            tintColor="#1E5FBA"
+            backgroundColor="#A6C5E7"
+          >
+            {() => <Text style={styles.text}>49%</Text>}
+          </AnimatedCircularProgress>
         </View>
 
         <View style={styles.progressContainer}>
@@ -89,7 +81,7 @@ const BudgetScreen = () => {
           <Image source={require("@/assets/images/food.png")} />
           <View style={styles.category}>
             <Text style={styles.categoryText}>Food and Drink</Text>
-            <Text style={styles.categoryText}>40%</Text>
+            <Text style={styles.categoryPercentageText}>40%</Text>
           </View>
           <Text style={styles.categoryAmount}>₦20,000/₦42,000</Text>
         </View>
@@ -97,7 +89,7 @@ const BudgetScreen = () => {
           <Image source={require("@/assets/images/savings.png")} />
           <View style={styles.category}>
             <Text style={styles.categoryText}>Savings</Text>
-            <Text style={styles.categoryText}>20%</Text>
+            <Text style={styles.categoryPercentageText}>20%</Text>
           </View>
           <Text style={styles.categoryAmount}>₦10,000/₦24,000</Text>
         </View>
@@ -108,7 +100,7 @@ const BudgetScreen = () => {
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: "white" },
-  container: { flex: 1, backgroundColor: "white", padding: 20 },
+  container: { backgroundColor: "white", padding: 20 }, 
   header: { fontSize: 28, fontWeight: "bold", marginBottom: 16 },
   budgetInputMoney: {
     flexDirection: "row",
@@ -144,14 +136,21 @@ const styles = StyleSheet.create({
     color: "#0466C8",
     fontSize: 16,
     fontWeight: "bold",
-    paddingBottom: 4, 
-    borderBottomWidth: 1, 
+    paddingBottom: 4,
+    borderBottomWidth: 1,
     borderBottomColor: "#0466C8",
-    alignSelf: "center", 
+    alignSelf: "center",
   },
-  
-  
-  progressContainer: { alignItems: "center" },
+  progressContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#1E5FBA",
+  },
   percentage: {
     fontSize: 30,
     fontWeight: "bold",
@@ -179,6 +178,7 @@ const styles = StyleSheet.create({
   },
   category: { flex: 1, marginLeft: 10 },
   categoryText: { fontSize: 16, fontWeight: "500", flex: 1, marginLeft: 10 },
+  categoryPercentageText: { fontSize: 10,  flex: 1, marginLeft: 10,color:"#707480" },
   categoryAmount: { fontSize: 14, color: "#6D6D6D" },
 });
 
