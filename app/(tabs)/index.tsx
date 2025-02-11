@@ -63,7 +63,7 @@ const BudgetScreen = () => {
           <Image source={require("@/assets/images/food.png")} />
           <View style={styles.category}>
             <Text style={styles.categoryText}>Food and Drink</Text>
-            <Text style={styles.categoryText}>40%</Text>
+            <Text style={styles.categoryPercentageText}>40%</Text>
           </View>
           <Text style={styles.categoryAmount}>₦20,000/₦42,000</Text>
         </View>
@@ -72,7 +72,7 @@ const BudgetScreen = () => {
           <Image source={require("@/assets/images/savings.png")} />
           <View style={styles.category}>
             <Text style={styles.categoryText}>Savings</Text>
-            <Text style={styles.categoryText}>20%</Text>
+            <Text style={styles.categoryPercentageText}>20%</Text>
           </View>
           <Text style={styles.categoryAmount}>₦10,000/₦24,000</Text>
         </View>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
   category: { flex: 1, marginLeft: 10 },
   categoryText: { fontSize: 16, fontWeight: "500", flex: 1, marginLeft: 10 },
-  categoryPercentageText: { fontSize: 10,  flex: 1, marginLeft: 10,color:"#707480" },
+  categoryPercentageText: { fontSize: 14, fontWeight: "500", flex: 1, marginLeft: 10,color:"#707480" },
   categoryAmount: { fontSize: 14, color: "#6D6D6D" },
 });
 
