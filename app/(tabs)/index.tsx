@@ -144,8 +144,13 @@ const styles = StyleSheet.create({
     color: "#0466C8",
     fontSize: 16,
     fontWeight: "bold",
-    textDecorationLine: "underline",
+    paddingBottom: 4, 
+    borderBottomWidth: 1, 
+    borderBottomColor: "#0466C8",
+    alignSelf: "center", 
   },
+  
+  
   progressContainer: { alignItems: "center" },
   percentage: {
     fontSize: 30,
