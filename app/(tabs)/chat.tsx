@@ -11,7 +11,7 @@ export default function TabTwoScreen() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
         <View>
-         <Text> Chat</Text>
+         <Text>Chat</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

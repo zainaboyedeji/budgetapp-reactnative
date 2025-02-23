@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { Image } from "react-native";
 import { HapticTab } from "@/components/HapticTab";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 export default function TabLayout() {
   return (
@@ -25,23 +25,19 @@ export default function TabLayout() {
       }}
     >
       {[
-        { name: "index", title: "Homes", icon: require("@/assets/images/home.png") },
-        { name: "reports", title: "Reports", icon: require("@/assets/images/reports.png") },
-        { name: "chat", title: "Chat", icon: require("@/assets/images/chat.png") },
-        { name: "budget", title: "Budget", icon: require("@/assets/images/budget.png") },
-        { name: "profile", title: "Profile", icon: require("@/assets/images/profile.png") },
+        { name: "index", title: "Home", icon: "home" },
+        { name: "reports", title: "Reports", icon: "insert-chart" },
+        { name: "chat", title: "Chat", icon: "chat" },
+        { name: "budget", title: "Budget", icon: "attach-money" },
+        { name: "profile", title: "Profile", icon: "person" },
       ].map(({ name, title, icon }) => (
         <Tabs.Screen
           key={name}
           name={name}
           options={{
             title,
-            tabBarIcon: ({ color }) => (
-              <Image
-                source={icon}
-                style={{ width: 28, height: 28, tintColor: color }}
-                resizeMode="contain"
-              />
+            tabBarIcon: ({ color, size = 28 }) => (
+              <Icon name={icon} size={size} color={color} />
             ),
           }}
         />

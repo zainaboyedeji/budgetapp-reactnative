@@ -101,7 +101,7 @@ const BudgetScreen = () => {
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: "white" },
   container: { backgroundColor: "white", padding: 20 }, 
-  header: { fontSize: 28, fontWeight: "bold", marginBottom: 16 },
+  header: { fontSize: 28, fontWeight: "bold", marginBottom: 20 },
   budgetInputMoney: {
     flexDirection: "row",
     marginVertical: 10,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     color: "#707480",
     fontWeight: "400",
     marginTop: 2,
-    marginLeft: 4,
+    marginLeft: 10,
     fontSize: 14,
   },
   budgetInputContainer: {
@@ -160,13 +160,14 @@ const styles = StyleSheet.create({
   },
   amountSpent: { fontSize: 14, color: "#707480", marginTop: 10 },
   amountBottom: {
-    fontSize: 14,
+    fontSize: 17,
     color: "#0466C8",
     marginTop: 10,
+    marginBottom: 20,
     fontWeight: "bold",
   },
 
-  categoryHeader: { fontSize: 18, fontWeight: "bold", marginVertical: 30 },
+  categoryHeader: { fontSize: 20, fontWeight: "bold", marginVertical: 20 },
   categoryItem: {
     flexDirection: "row",
     alignItems: "center",
