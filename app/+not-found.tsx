@@ -1,11 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Animated,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useRouter } from "expo-router";
 
@@ -17,37 +11,15 @@ type RootStackParamList = {
 type Props = StackScreenProps<RootStackParamList, "NotFound">;
 
 const NotFoundScreen: React.FC<Props> = () => {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const router = useRouter();
-
-  useEffect(() => {
-    Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 800,
-        useNativeDriver: true,
-      }),
-      Animated.spring(scaleAnim, {
-        toValue: 1,
-        friction: 5,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, []);
 
   return (
     <View style={styles.container}>
-      <Animated.View
-        style={[
-          styles.box,
-          { opacity: fadeAnim, transform: [{ scale: scaleAnim }] },
-        ]}
-      >
-        <Text style={styles.emoji}>🛰️</Text>
-        <Text style={styles.title}>404 Not Found</Text>
-        <Text style={styles.subtitle}>You're lost in space...</Text>
-      </Animated.View>
+      <Image
+        source={require("@/assets/images/404.png")}
+        style={{ width: 300, height: 300 }}
+      />
+      <Text style={styles.title}>Page Not Found</Text>
       <TouchableOpacity style={styles.button} onPress={() => router.push("/")}>
         <Text style={styles.buttonText}>Go Back Home</Text>
       </TouchableOpacity>
@@ -60,20 +32,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#0466C8",
+    backgroundColor: "white",
   },
   box: {
     alignItems: "center",
-    padding: 20,
     borderRadius: 15,
-  },
-  emoji: {
-    fontSize: 60,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#0466C8",
     marginTop: 10,
   },
   subtitle: {
@@ -84,7 +52,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    backgroundColor: "blue",
+    backgroundColor: "#0466C8",
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 30,

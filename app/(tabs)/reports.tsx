@@ -1,17 +1,11 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 
 export default function TabTwoScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
         <View>
-         <Text> Reports</Text>
+          <Text style={styles.header}> Reports</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -21,4 +15,5 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: "white" },
   container: { flex: 1, backgroundColor: "white", padding: 20 },
+  header: { fontSize: 28, fontWeight: "bold", marginBottom: 20 },
 });
