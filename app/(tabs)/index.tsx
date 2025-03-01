@@ -7,10 +7,13 @@ import {
   TextInput,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
+import { useRouter } from "expo-router";
 
 const BudgetScreen = () => {
+  const router = useRouter();
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
@@ -59,14 +62,17 @@ const BudgetScreen = () => {
 
         <Text style={styles.categoryHeader}>Category Breakdown</Text>
 
-        <View style={styles.categoryItem}>
+        <TouchableOpacity
+          style={styles.categoryItem}
+          onPress={() => router.push("/+not-found")}
+        >
           <Image source={require("@/assets/images/food.png")} />
           <View style={styles.category}>
             <Text style={styles.categoryText}>Food and Drink</Text>
             <Text style={styles.categoryPercentageText}>40%</Text>
           </View>
           <Text style={styles.categoryAmount}>₦20,000/₦42,000</Text>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.categoryItem}>
           <Image source={require("@/assets/images/savings.png")} />
@@ -100,7 +106,7 @@ const BudgetScreen = () => {
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: "white" },
-  container: { backgroundColor: "white", padding: 20 }, 
+  container: { backgroundColor: "white", padding: 20 },
   header: { fontSize: 28, fontWeight: "bold", marginBottom: 20 },
   budgetInputMoney: {
     flexDirection: "row",
@@ -179,7 +185,13 @@ const styles = StyleSheet.create({
   },
   category: { flex: 1, marginLeft: 10 },
   categoryText: { fontSize: 16, fontWeight: "500", flex: 1, marginLeft: 10 },
-  categoryPercentageText: { fontSize: 14, fontWeight: "500", flex: 1, marginLeft: 10,color:"#707480" },
+  categoryPercentageText: {
+    fontSize: 14,
+    fontWeight: "500",
+    flex: 1,
+    marginLeft: 10,
+    color: "#707480",
+  },
   categoryAmount: { fontSize: 14, color: "#6D6D6D" },
 });
 
