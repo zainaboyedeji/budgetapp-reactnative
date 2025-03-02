@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useRouter } from "expo-router";
